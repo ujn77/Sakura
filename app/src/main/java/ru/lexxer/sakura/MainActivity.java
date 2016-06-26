@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        String BASE_URL = "http://pizzalarenzo.ru/api/punicapp.php?action=itemsByChange" ;
-
+        //String BASE_URL = "http://pizzalarenzo.ru/api/punicapp.php?action=itemsByChange" ;
+        String BASE_URL = "http://pizzalarenzo.ru/api/" ;
         Retrofit client = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
