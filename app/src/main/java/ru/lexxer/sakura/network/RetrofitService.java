@@ -42,7 +42,7 @@ public class RetrofitService {
         logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         mRetrofit = new Retrofit.Builder()
-                .baseUrl(WeatherUrls.getApiBaseUrl(context))
+                .baseUrl("http://pizzalarenzo.ru/api/punicapp.php?action=itemsByChange")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(new OkHttpClient.Builder().addInterceptor(logInterceptor).build())
                 .build();

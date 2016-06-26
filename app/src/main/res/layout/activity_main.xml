@@ -11,7 +11,15 @@
     tools:context="ru.lexxer.sakura.MainActivity">
 
     <Button
+        android:id="@+id/butttonGetGoods"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Get goods"/>
+
+    <ListView
+        android:id="@+id/listGoods"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+
 </LinearLayout>
