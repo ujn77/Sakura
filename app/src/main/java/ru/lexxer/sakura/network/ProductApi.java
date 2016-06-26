@@ -2,8 +2,7 @@ package ru.lexxer.sakura.network;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Query;
-import ru.lexxer.sakura.models.Product;
+import ru.lexxer.sakura.models.ProductResponse;
 
 /**
  * Date: 21.06.2016
@@ -12,8 +11,8 @@ import ru.lexxer.sakura.models.Product;
  * @author Jeksor
  */
 public interface ProductApi {
-    String mURL = "punicapp.php";
-    String param = "itemsByChange";
+    String mURL = "punicapp.php?action=itemsByChange";
+
     @GET(mURL)
-    Call<Product> getProduct(@Query("action") String param);
+    Call<ProductResponse> getProducts();
 }

@@ -7,19 +7,15 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import java.io.IOException;
+
+import retrofit2.Call;
+import retrofit2.Response;
+import ru.lexxer.sakura.models.ProductResponse;
+import ru.lexxer.sakura.network.ProductApi;
 import ru.lexxer.sakura.network.RetrofitService;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
-    // Это добавил DTO , решил пока не удалять, вдруг это что нужное
-//    @com.google.gson.annotations.SerializedName("error")
-//    private boolean mError;
-//    @com.google.gson.annotations.SerializedName("data")
-//    private List<Product> mData;
-//    @com.google.gson.annotations.SerializedName("serverTime")
-//    private String mServertime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,14 +33,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        //String BASE_URL = "http://pizzalarenzo.ru/api/punicapp.php?action=itemsByChange" ;
-        String BASE_URL = "http://pizzalarenzo.ru/api/" ;
-        Retrofit client = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        RetrofitService service = client.create(RetrofitService.class);
+        RetrofitService retrofitService = RetrofitService.getInstance(this);
+
+        ProductApi productApi = retrofitService.createApiService(ProductApi.class);
+
+        Call<ProductResponse> productCall = productApi.getProducts();
+
+        try {
+            Response<ProductResponse> response = productCall.execute();
+            ProductResponse body = response.body();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         Toast.makeText(this, "Button clicked!", Toast.LENGTH_SHORT).show();
     }
