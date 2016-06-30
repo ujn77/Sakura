@@ -1,44 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="ru.lexxer.sakura.MainActivity">
 
-    <include layout="@layout/toolbar"/>
+    <Button
+        android:id="@+id/butttonGetGoods"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get goods"/>
 
-    <FrameLayout
-        android:id="@+id/drawer_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar">
+    <ListView
+        android:id="@+id/listGoods"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
 
-        <RelativeLayout
-            android:id="@+id/frame_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <FrameLayout
-                android:id="@+id/fragment_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </FrameLayout>
-
-            <Button
-                android:id="@+id/butttonGetGoods"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Get goods"/>
-
-            <ListView
-                android:id="@+id/listGoods"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-
-        </RelativeLayout>
-
-    </FrameLayout>
-
-
-</RelativeLayout>
+</LinearLayout>
