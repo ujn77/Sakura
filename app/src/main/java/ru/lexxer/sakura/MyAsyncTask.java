@@ -1,5 +1,6 @@
 package ru.lexxer.sakura;
 
+import android.content.Context;
 import android.os.SystemClock;
 import android.widget.Toast;
 
@@ -19,6 +20,10 @@ import ru.lexxer.sakura.network.RetrofitService;
  */
 public class MyAsyncTask extends android.os.AsyncTask<Void, Integer, Void> {
     int progress_status;
+
+    public MyAsyncTask (Context context){
+
+    }
 
     @Override
     protected void onPreExecute() {
@@ -42,7 +47,7 @@ public class MyAsyncTask extends android.os.AsyncTask<Void, Integer, Void> {
             e.printStackTrace();
         }
 
-        Toast.makeText(this, "Button clicked!", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Button clicked!", Toast.LENGTH_SHORT).show();
 
 //        while (progress_status < 100) {
 //

@@ -8,12 +8,14 @@ import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    MyAsyncTask MyAsyncTask = new MyAsyncTask();
+    MyAsyncTask MyAsyncTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MyAsyncTask = new MyAsyncTask(this);
 
         // находим вьюхи
         Button buttonGetGoods = (Button) findViewById(R.id.butttonGetGoods);
