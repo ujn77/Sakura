@@ -11,7 +11,7 @@ import ru.lexxer.sakura.models.ProductResponse;
  * @author Jeksor
  */
 public interface ProductApi {
-    String mURL = "punicapp.php?action=itemsByChange";
+    String mURL = "api/punicapp.php?action=itemsByChange";
 
     @GET(mURL)
     Call<ProductResponse> getProducts();
