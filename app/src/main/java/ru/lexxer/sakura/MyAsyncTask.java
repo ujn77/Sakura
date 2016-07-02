@@ -1,8 +1,6 @@
 package ru.lexxer.sakura;
 
 import android.content.Context;
-import android.os.SystemClock;
-import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -19,10 +17,12 @@ import ru.lexxer.sakura.network.RetrofitService;
  * @author Alexey Buynichev
  */
 public class MyAsyncTask extends android.os.AsyncTask<Void, Integer, Void> {
+
     int progress_status;
+    Context mContext;
 
-    public MyAsyncTask (Context context){
-
+    public MyAsyncTask(Context context) {
+        mContext = context;
     }
 
     @Override
@@ -36,7 +36,7 @@ public class MyAsyncTask extends android.os.AsyncTask<Void, Integer, Void> {
 
     @Override
     protected Void doInBackground(Void... params) {
-        RetrofitService retrofitService = RetrofitService.getInstance(this);
+        RetrofitService retrofitService = RetrofitService.getInstance(mContext);
         ProductApi productApi = retrofitService.createApiService(ProductApi.class);
         Call<ProductResponse> productCall = productApi.getProducts();
 
@@ -55,7 +55,7 @@ public class MyAsyncTask extends android.os.AsyncTask<Void, Integer, Void> {
 //            publishProgress(progress_status);
 //            SystemClock.sleep(300);
 //        }
-//        return null;
+       return null;
     }
 
     @Override
