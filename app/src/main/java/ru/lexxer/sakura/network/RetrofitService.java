@@ -42,7 +42,7 @@ public class RetrofitService {
         logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         mRetrofit = new Retrofit.Builder()
-                .baseUrl("http://pizzalarenzo.ru/api/")
+                .baseUrl("http://pizzalarenzo.ru/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(new OkHttpClient.Builder().addInterceptor(logInterceptor).build())
                 .build();

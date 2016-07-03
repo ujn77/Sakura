@@ -77,8 +77,8 @@ public class MyAsyncTask extends android.os.AsyncTask<Void, Integer, Void> {
         //String[] months = intent.getStringArrayExtra("months");
 
         // создаем адаптер
-        String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-        //BuynichevAdapter adapter = new BuynichevAdapter(BuynichevAsyncActivity.this, months);
+        //String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+        //ProductAdapter adapter = new ProductAdapter(mContext, result);
 
         // присваиваем адаптер списку
         //buynichev_async_activity_lvMonths.setAdapter(adapter);
