@@ -35,27 +35,20 @@ public class MyAsyncTask extends android.os.AsyncTask<Void, Integer, Void> {
     }
 
     @Override
-    protected Void doInBackground(Void... params) {
+    protected ProductResponse doInBackground(Void... params) {
         RetrofitService retrofitService = RetrofitService.getInstance(mContext);
         ProductApi productApi = retrofitService.createApiService(ProductApi.class);
         Call<ProductResponse> productCall = productApi.getProducts();
 
+        ProductResponse body;
         try {
             Response<ProductResponse> response = productCall.execute();
-            ProductResponse body = response.body();
+            body = response.body();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        //Toast.makeText(this, "Button clicked!", Toast.LENGTH_SHORT).show();
-
-//        while (progress_status < 100) {
-//
-//            progress_status += 10;
-//            publishProgress(progress_status);
-//            SystemClock.sleep(300);
-//        }
-       return null;
+        return body;
     }
 
     @Override
